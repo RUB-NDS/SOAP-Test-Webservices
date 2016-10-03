@@ -14,6 +14,7 @@ The sample web services use different WS-Security configurations. There are 8 di
 - "Enc+TS": This web service is the combination of the web services 2 and 4. The first child element of the SOAP-Body is encrypted and a timestamp is added to the message. *Note: The timestamps are not signed so that they can be manipulated easily.*
 - "TS+Sign": This web service is the combination of the web services 3 and 4. First a timestamp is added to the message, then the SOAP-Body and the timestamp are signed.
 - "Enc+TS+Sign": This web services is the combination of the web services 2, 3 and 4. The first child element of the SOAP-Body is encrypted and a timestamp is added to the message. Afterwards the SOAP-Body and the timestamp are signed.
+
 *All web services make use of the SOAPAction parameter and have WS-Addressing support.*
 
 The web services can be used for tests with the web service penetration testing tool WS-Attacker (https://github.com/RUB-NDS/WS-Attacker/).
