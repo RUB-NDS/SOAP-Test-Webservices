@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WCF.AdminConfigEncTSSign" CodeBehind="AdminConfigEncTSSign.svc.cs" %>
