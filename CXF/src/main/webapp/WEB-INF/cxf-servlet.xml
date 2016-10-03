@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Copyright 2016 Karsten Meyer zu Selhausen
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+      http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+	
+	<!-- NO WS-SECURITY -->
+	<!-- 1. Webservice: Without any WS-Security configuration -->
+	<jaxws:endpoint id="cxf1" implementor="ba.kmzs.cxf.AdminConfigImpl" address="/1"/>
+	
+	<!-- SIGN -->
+	<!-- 2. Webservice: Signature for all messages -->
+    <jaxws:endpoint id="cxf2" implementor="ba.kmzs.cxf.AdminConfigImpl" address="/sign">
+		<!-- Outgoing WS-Security configuration -->
+		<jaxws:outInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Signature"/>
+				   <entry key="user" value="server"/>
+				   <entry key="signaturePropFile" value="etc/server_sign.properties"/>
+				   <entry key="passwordCallbackClass" value="ba.kmzs.cxf.PasswordCallback"/>
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:outInterceptors>
+		<!-- Incomming WS-Security configuration -->
+		<jaxws:inInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Signature"/>
+				   <entry key="signaturePropFile" value="etc/server_sign_verify.properties"/>
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+	<!-- ENC -->
+	<!-- 3. Webservice: Encryption for all messages -->
+	<jaxws:endpoint id="cxf3" implementor="ba.kmzs.cxf.AdminConfigImpl" address="/enc">
+		<!-- Outgoing WS-Security configuration -->
+		<jaxws:outInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Encrypt"/>
+				   <entry key="passwordCallbackClass" value="ba.kmzs.cxf.PasswordCallback"/>
+				   <entry key="encryptionUser" value="client"/>
+				   <entry key="encryptionPropFile" value="etc/server_sign_verify.properties"/>
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:outInterceptors>
+		<!-- Incomming WS-Security configuration -->
+		<jaxws:inInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Encrypt"/>
+				   <entry key="passwordCallbackClass" value="ba.kmzs.cxf.PasswordCallback"/>
+				   <entry key="encryptionUser" value="server"/>
+				   <entry key="decryptionPropFile" value="etc/server_sign.properties"/>
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+	<!-- TS -->
+	<!-- 4. Webservice: Timestamps for all messages -->
+    <jaxws:endpoint id="cxf4" implementor="ba.kmzs.cxf.AdminConfigImpl" address="/ts">
+		<!-- Outgoing WS-Security configuration -->
+		<jaxws:outInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Timestamp"/>
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:outInterceptors>
+		<!-- Incomming WS-Security configuration -->
+		<jaxws:inInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Timestamp"/>				   
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+	<!-- ENC+SIGN -->
+	<!-- 5. Webservice: Encryption and Signature for all messages -->
+	<jaxws:endpoint id="cxf5" implementor="ba.kmzs.cxf.AdminConfigImpl" address="/encsign">
+		<!-- Outgoing WS-Security configuration -->
+		<jaxws:outInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Signature Encrypt"/>
+				   <entry key="passwordCallbackClass" value="ba.kmzs.cxf.PasswordCallback"/>
+				   <entry key="encryptionUser" value="client"/>
+				   <entry key="encryptionPropFile" value="etc/server_sign_verify.properties"/>
+				   <entry key="signatureUser" value="server"/>
+				   <entry key="signaturePropFile" value="etc/server_sign.properties"/>
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:outInterceptors>
+		<!-- Incomming WS-Security configuration -->
+		<jaxws:inInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Signature Encrypt"/>
+				   <entry key="passwordCallbackClass" value="ba.kmzs.cxf.PasswordCallback"/>
+				   <entry key="encryptionUser" value="server"/>
+				   <entry key="decryptionPropFile" value="etc/server_sign.properties"/>
+				   <entry key="signatureUser" value="client"/>
+				   <entry key="signaturePropFile" value="etc/server_sign_verify.properties"/>
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+	<!-- ENC+TS -->
+	<!-- 6. Webservice: Encryption and Timestamps for all messages -->
+    <jaxws:endpoint id="cxf6" implementor="ba.kmzs.cxf.AdminConfigImpl" address="/encts">
+		<!-- Outgoing WS-Security configuration -->
+		<jaxws:outInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Timestamp Encrypt"/>
+				   <entry key="passwordCallbackClass" value="ba.kmzs.cxf.PasswordCallback"/>
+				   <entry key="encryptionUser" value="client"/>
+				   <entry key="encryptionPropFile" value="etc/server_sign_verify.properties"/>				   
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:outInterceptors>
+		<!-- Incomming WS-Security configuration -->
+		<jaxws:inInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Timestamp Encrypt"/>
+				   <entry key="passwordCallbackClass" value="ba.kmzs.cxf.PasswordCallback"/>
+				   <entry key="encryptionUser" value="server"/>
+				   <entry key="decryptionPropFile" value="etc/server_sign.properties"/>				  
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+	<!-- TS+SIGN -->
+	<!-- 7. Webservice: Timestamps and Signature for all messages -->
+	<jaxws:endpoint id="cxf7" implementor="ba.kmzs.cxf.AdminConfigImpl" address="/tssign">
+		<!-- Outgoing WS-Security configuration -->
+		<jaxws:outInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Timestamp Signature"/>
+				   <entry key="passwordCallbackClass" value="ba.kmzs.cxf.PasswordCallback"/>
+				   <entry key="signatureUser" value="server"/>
+				   <entry key="signaturePropFile" value="etc/server_sign.properties"/>
+				   <entry key="signatureParts" value="{Element}{http://schemas.xmlsoap.org/soap/envelope/}Body;{Element}{http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd}Timestamp"/>
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:outInterceptors>
+		<!-- Incomming WS-Security configuration -->
+		<jaxws:inInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Timestamp Signature"/>
+				   <entry key="passwordCallbackClass" value="ba.kmzs.cxf.PasswordCallback"/>
+				   <entry key="signatureUser" value="client"/>
+				   <entry key="signaturePropFile" value="etc/server_sign_verify.properties"/>
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+	<!-- ENC+TS+SIGN -->
+	<!-- 8. Webservice: Encryption, Timestamps and Signature for all messages -->
+    <jaxws:endpoint id="cxf8" implementor="ba.kmzs.cxf.AdminConfigImpl" address="/enctssign">
+		<!-- Outgoing WS-Security configuration -->
+		<jaxws:outInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Timestamp Signature Encrypt"/>
+				   <entry key="passwordCallbackClass" value="ba.kmzs.cxf.PasswordCallback"/>
+				   <entry key="encryptionUser" value="client"/>
+				   <entry key="encryptionPropFile" value="etc/server_sign_verify.properties"/>
+				   <entry key="signatureUser" value="server"/>
+				   <entry key="signaturePropFile" value="etc/server_sign.properties"/>
+				   <entry key="signatureParts" value="{Element}{http://schemas.xmlsoap.org/soap/envelope/}Body;{Element}{http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd}Timestamp"/>
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:outInterceptors>
+		<!-- Incomming WS-Security configuration -->
+		<jaxws:inInterceptors>
+		  <bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+			 <constructor-arg>
+				<map>
+				   <entry key="action" value="Timestamp Signature Encrypt"/>
+				   <entry key="passwordCallbackClass" value="ba.kmzs.cxf.PasswordCallback"/>
+				   <entry key="encryptionUser" value="server"/>
+				   <entry key="decryptionPropFile" value="etc/server_sign.properties"/>
+				   <entry key="signatureUser" value="client"/>
+				   <entry key="signaturePropFile" value="etc/server_sign_verify.properties"/>
+				</map>
+			 </constructor-arg>
+		  </bean>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+</beans>
+<!-- END SNIPPET: beans -->
