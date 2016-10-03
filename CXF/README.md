@@ -1,4 +1,4 @@
-The following files are modified versions of the original files from the Apache CXF sample "ws_security/sign_enc"(https://cxf.apache.org/download.html):
+The following files are modified versions of the original files from the Apache CXF sample "ws_security/sign_enc" (https://cxf.apache.org/download.html):
 PasswordCallback.java (original file: UTPasswordCallback.java)
 server_sign.properties
 server_sign_verify.properties
