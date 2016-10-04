@@ -6,14 +6,15 @@ This repository contains several sample web services built with the four framewo
 - Windows Communication Foundation (*.NET* v4.6.2)
 
 The sample web services use different WS-Security configurations. There are 8 different configurations, however some web services can't be built with all frameworks:
-- "1": This web service doesn't use any features to secure the messages. It provides two different functions to make it possible to execute the "SOAPAction Spoofing" attack. It also is the base for all other web services.
-- "Enc": This web service is based on the first one and makes use of encryption. The first child element of the SOAP-Body is encrypted.
-- "Sign": This web service adds a signature to the first web service. The signed element is the SOAP-Body.
-- "TS": This web service makes use of timestamps to "prevent" replay attacks. *Note: The timestamps are not signed so that they can be manipulated easily.*
-- "Enc+Sign": This web service is the combination of the web services 2 and 3. First the first child element of the SOAP-Body is encrypted, then the SOAP-Body is signed.
-- "Enc+TS": This web service is the combination of the web services 2 and 4. The first child element of the SOAP-Body is encrypted and a timestamp is added to the message. *Note: The timestamps are not signed so that they can be manipulated easily.*
-- "TS+Sign": This web service is the combination of the web services 3 and 4. First a timestamp is added to the message, then the SOAP-Body and the timestamp are signed.
-- "Enc+TS+Sign": This web services is the combination of the web services 2, 3 and 4. The first child element of the SOAP-Body is encrypted and a timestamp is added to the message. Afterwards the SOAP-Body and the timestamp are signed.
+
+1. "1": This web service doesn't use any features to secure the messages. It provides two different functions to make it possible to execute the "SOAPAction Spoofing" attack. It also is the base for all other web services.
+2. "Enc": This web service is based on the first one and makes use of encryption. The first child element of the SOAP-Body is encrypted.
+3. "Sign": This web service adds a signature to the first web service. The signed element is the SOAP-Body.
+4. "TS": This web service makes use of timestamps to "prevent" replay attacks. *Note: The timestamps are not signed so that they can be easily manipulated.*
+5. "Enc+Sign": This web service is the combination of the web services 2 and 3. First the first child element of the SOAP-Body is encrypted, then the SOAP-Body is signed.
+6. "Enc+TS": This web service is the combination of the web services 2 and 4. The first child element of the SOAP-Body is encrypted and a timestamp is added to the message. *Note: The timestamps are not signed so that they can be easily manipulated.*
+7. "TS+Sign": This web service is the combination of the web services 3 and 4. First a timestamp is added to the message, then the SOAP-Body and the timestamp are signed.
+8. "Enc+TS+Sign": This web services is the combination of the web services 2, 3 and 4. The first child element of the SOAP-Body is encrypted and a timestamp is added to the message. Afterwards the SOAP-Body and the timestamp are signed.
 
 *All web services make use of the SOAPAction parameter and have WS-Addressing support.*
 
