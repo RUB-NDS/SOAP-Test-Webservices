@@ -1,0 +1,10 @@
+<soapenv:Envelope xmlns:cxf="http://cxf.kmzs.ba/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><ds:Signature Id="SIG-B48C3FD41697EFF4A714739619453945" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces PrefixList="cxf soapenv" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI="#id-B48C3FD41697EFF4A714739619453784"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces PrefixList="cxf" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>0193iRdlU6VqchQuaRoGKWQ8e9A=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>dUPdkzu2wiTBpWwVX5JvcveargKPp8GB/bLKe97CaV2Bv+Hk/k+U+WK0Q/ZrA5VM0y+Ok5kV7EFq
+k8ceYJ6uPEygGbayQ998oyOvwhRX0sweEnlIi8q/v5OHZ8epTEQhYopNWmcv0maJpcq37AS3yDK9
+q1IrI/afCWA3mimA3+Fc3+kGlBTdAg/uJPHKd/WaVePCg3POtqZpEpybf2SLaiXi/00O1vrTf1go
+tJUBTpg3SymcIqUQ4EV0QS4AWIanU9EhaUb9zVHD3PQyggaXZyO66P1NKMyG4LcWXRgOvsWpDbyF
+jlrmIF1mpoDR0CYnkNnmcvtoaBaqKzZkpUJmcg==</ds:SignatureValue><ds:KeyInfo Id="KI-B48C3FD41697EFF4A714739619453592"><wsse:SecurityTokenReference wsu:Id="STR-B48C3FD41697EFF4A714739619453643"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=client</ds:X509IssuerName><ds:X509SerialNumber>1034513739</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></wsse:SecurityTokenReference></ds:KeyInfo></ds:Signature></wsse:Security></soapenv:Header>
+   <soapenv:Body wsu:Id="id-B48C3FD41697EFF4A714739619453784" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+      <cxf:getAdminToken/>
+   </soapenv:Body>
+</soapenv:Envelope>

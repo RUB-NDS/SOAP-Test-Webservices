@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" $$PAYLOADATTR$$>
+   <soapenv:Header xmlns:wsa="http://www.w3.org/2005/08/addressing" $$PAYLOADATTR$$>
+      <wsa:Action>http://tempuri.org/IAdminConfig/getAdminToken</wsa:Action>
+      <wsa:To>http://localhost:8081/wcf-1</wsa:To>
+   $$PAYLOADELEMENT$$</soapenv:Header>
+   <soapenv:Body $$PAYLOADATTR$$>
+      <tem:getAdminToken/>
+   </soapenv:Body>
+</soapenv:Envelope>

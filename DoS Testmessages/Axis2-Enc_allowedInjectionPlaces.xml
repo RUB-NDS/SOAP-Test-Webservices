@@ -1,0 +1,40 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:axis="http://axis21.kmzs.ba">
+	<soap:Header $$PAYLOADATTR$$>
+		<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" $$PAYLOADATTR$$>
+			<xenc:EncryptedKey xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" Id="EK-AC5903F7D6DFBD4BC114743626448531">
+				<xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#" $$PAYLOADATTR$$>
+					<wsse:SecurityTokenReference $$PAYLOADATTR$$>
+						<ds:X509Data $$PAYLOADATTR$$>
+							<ds:X509IssuerSerial>
+								<ds:X509IssuerName>CN=server</ds:X509IssuerName>
+								<ds:X509SerialNumber>1993907142</ds:X509SerialNumber>
+							</ds:X509IssuerSerial>$$PAYLOADELEMENT$$</ds:X509Data></wsse:SecurityTokenReference>
+				</ds:KeyInfo>
+				<xenc:CipherData>
+					<xenc:CipherValue>I/4OZs6k776wJob4ZDR4WPFVWZASL/o/xdxnX3iTDblC1ZTqfieid1qnuaQ4c8m5CIdKZgGVFgko7CoeQuXaIqNlJ3NgVfhB59Q+lyCZQSwocl4yrxMySAtkCftNPxUPEBda0N54UdJA0MK14EMBRdZdIYrmjOpU+gvcNeWbPSSV8IOYIxQhbMHcLQUK9q8shbNHjGhfZ2vellrLHkDMt3hpI8ytn6DCQVTjG4sR9bwp6D8CglETQx7Nh/qVKum893WavgbJCQ4lEDGjNwuSSzOUV7Qr5sx10VI1AwHlgZsjZfFD/U6l43is/EakeNdxkh0Tn/nA87ZS1836bsIexg==</xenc:CipherValue>
+				</xenc:CipherData>
+				<xenc:ReferenceList>
+					<xenc:DataReference URI="#ED-AC5903F7D6DFBD4BC114743626452542"/>
+				</xenc:ReferenceList>
+			</xenc:EncryptedKey>$$PAYLOADELEMENT$$</wsse:Security>$$PAYLOADELEMENT$$</soap:Header>
+	<soap:Body $$PAYLOADATTR$$>
+		<xenc:EncryptedData xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" Id="ED-AC5903F7D6DFBD4BC114743626452542" Type="http://www.w3.org/2001/04/xmlenc#Content">
+			<xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#" $$PAYLOADATTR$$>
+				<wsse:SecurityTokenReference xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsse11="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" $$PAYLOADATTR$$ wsse11:TokenType="http://docs.oasis-open.org/wss/oasis-wss-soap-message-security-1.1#EncryptedKey">
+					<wsse:Reference URI="#EK-AC5903F7D6DFBD4BC114743626448531"/>$$PAYLOADELEMENT$$</wsse:SecurityTokenReference>$$PAYLOADELEMENT$$<ds:KeyValue $$PAYLOADATTR$$>$$PAYLOADELEMENT$$</ds:KeyValue>
+				<ds:PGPData $$PAYLOADATTR$$>$$PAYLOADELEMENT$$</ds:PGPData>
+				<ds:RetrievalMethod>
+					<ds:Transforms>
+						<ds:Transform $$PAYLOADATTR$$>$$PAYLOADELEMENT$$</ds:Transform>
+					</ds:Transforms>
+				</ds:RetrievalMethod>
+				<ds:SPKIData $$PAYLOADATTR$$>$$PAYLOADELEMENT$$</ds:SPKIData>
+				<ds:X509Data $$PAYLOADATTR$$>$$PAYLOADELEMENT$$</ds:X509Data>
+			</ds:KeyInfo>
+			<xenc:CipherData>
+				<xenc:CipherValue>gqq0S+kBVWfBfSMWoGOAvNEAMRZ8Lx+7Hdu3jPfumNkh31OGHDB6XwuSPH5ba2CxFuu/pUEN25TMDdUsd++Ozblktp5a1p/puMiS93PF65Q=</xenc:CipherValue>
+			</xenc:CipherData>
+		</xenc:EncryptedData>$$PAYLOADELEMENT$$</soap:Body>
+</soap:Envelope>
