@@ -60,10 +60,10 @@
 			<fileset excludes="**/Test.class" dir="${build.dir}/classes"/>
 		</jar>
 		<!-- Copies aar file to the "services" directory of the Axis2 servlet inside the Tomcat "webapps" directory. Service will be deployed automatically. -->
-		<copy file="${build.dir}/axis2-${ant.project.name}.aar"
+		<!-- <copy file="${build.dir}/axis2-${ant.project.name}.aar"
               toDir="${env.CATALINA_HOME}/webapps/axis2/WEB-INF/services"
               overwrite="yes">  
-		</copy>
+        </copy> -->
 		<!-- Copies aar file to the "services" directory inside the Axis2 directory. Needed in case Axis2 standalone is used or the Axis2 servlet will be recompiled. -->
 		<copy file="${build.dir}/axis2-${ant.project.name}.aar"
               toDir="${AXIS2HOME}/repository/services"
