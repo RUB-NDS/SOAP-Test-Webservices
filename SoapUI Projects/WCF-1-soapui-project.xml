@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="5b9a51b1-e001-45c8-a17a-d74766195dc9" activeEnvironment="Default" name="WCF-1" resourceRoot="" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="cdff5b53-ec00-467e-ba86-1d3e55b143b5" wsaVersion="200508" name="NoSecurity" type="wsdl" bindingName="{http://tempuri.org/}NoSecurity" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/Administrator/Downloads/WSDL/WCF-1.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/Users/Administrator/Downloads/WSDL/WCF-1.wsdl"><con:part><con:url>file:/C:/Users/Administrator/Downloads/WSDL/WCF-1.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="AdminConfig" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://tempuri.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+  <wsp:Policy wsu:Id="NoSecurity_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing/>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd0" namespace="http://tempuri.org/"/>
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAdminConfig_getServerTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:getServerTime"/>
+  </wsdl:message>
+  <wsdl:message name="IAdminConfig_getServerTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getServerTimeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IAdminConfig_getAdminToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAdminToken"/>
+  </wsdl:message>
+  <wsdl:message name="IAdminConfig_getAdminToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAdminTokenResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IAdminConfig">
+    <wsdl:operation name="getServerTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminConfig/getServerTime" message="tns:IAdminConfig_getServerTime_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminConfig/getServerTimeResponse" message="tns:IAdminConfig_getServerTime_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAdminToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminConfig/getAdminToken" message="tns:IAdminConfig_getAdminToken_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminConfig/getAdminTokenResponse" message="tns:IAdminConfig_getAdminToken_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NoSecurity" type="tns:IAdminConfig">
+    <wsp:PolicyReference URI="#NoSecurity_policy"/>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getServerTime">
+      <soap:operation soapAction="http://tempuri.org/IAdminConfig/getServerTime" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdminToken">
+      <soap:operation soapAction="http://tempuri.org/IAdminConfig/getAdminToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NoSecurity1" type="tns:IAdminConfig">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getServerTime">
+      <soap:operation soapAction="http://tempuri.org/IAdminConfig/getServerTime" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdminToken">
+      <soap:operation soapAction="http://tempuri.org/IAdminConfig/getAdminToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdminConfig">
+    <wsdl:port name="NoSecurity" binding="tns:NoSecurity">
+      <soap:address location="http://localhost:8081/wcf-1"/>
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:8081/wcf-1</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NoSecurity1" binding="tns:NoSecurity1">
+      <soap:address location="http://localhost:8081/wcf-1-noaddressing"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8081/?xsd=xsd0</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:element name="getServerTime">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getServerTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getServerTimeResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAdminToken">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAdminTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getAdminTokenResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8081/?xsd=xsd1</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+  <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+  <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+  <xs:element name="byte" nillable="true" type="xs:byte"/>
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+  <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+  <xs:element name="double" nillable="true" type="xs:double"/>
+  <xs:element name="float" nillable="true" type="xs:float"/>
+  <xs:element name="int" nillable="true" type="xs:int"/>
+  <xs:element name="long" nillable="true" type="xs:long"/>
+  <xs:element name="QName" nillable="true" type="xs:QName"/>
+  <xs:element name="short" nillable="true" type="xs:short"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+  <xs:element name="char" nillable="true" type="tns:char"/>
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration"/>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid"/>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName"/>
+  <xs:attribute name="Id" type="xs:ID"/>
+  <xs:attribute name="Ref" type="xs:IDREF"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8081/wcf-1</con:endpoint></con:endpoints><con:operation id="97d91d98-ac79-410c-929a-46aee3820572" isOneWay="false" action="http://tempuri.org/IAdminConfig/getAdminToken" name="getAdminToken" bindingOperationName="getAdminToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="48780db3-dde8-4c9e-a3c2-20e2549277fb" name="Request 1" useWsAddressing="true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/wcf-1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:getAdminToken/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IAdminConfig/getAdminToken" addDefaultAction="false" addDefaultTo="true"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="57e7e1bb-fc0a-49fd-aad0-d0f662d6d867" isOneWay="false" action="http://tempuri.org/IAdminConfig/getServerTime" name="getServerTime" bindingOperationName="getServerTime" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="48ff049c-4a41-4e08-b340-482b8c9c3fcd" name="Request 1" useWsAddressing="true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/wcf-1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:getServerTime/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IAdminConfig/getServerTime" addDefaultTo="true"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="7e3bbeb1-8c0b-442e-8e7a-017e8370cbf0" wsaVersion="NONE" name="NoSecurity1" type="wsdl" bindingName="{http://tempuri.org/}NoSecurity1" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/Administrator/Downloads/WSDL/WCF-1.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\Administrator\Downloads\WSDL\WCF-1.wsdl"><con:part><con:url>file:\C:\Users\Administrator\Downloads\WSDL\WCF-1.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="AdminConfig" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://tempuri.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+  <wsp:Policy wsu:Id="NoSecurity_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing/>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd0" namespace="http://tempuri.org/"/>
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAdminConfig_getServerTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:getServerTime"/>
+  </wsdl:message>
+  <wsdl:message name="IAdminConfig_getServerTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getServerTimeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IAdminConfig_getAdminToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAdminToken"/>
+  </wsdl:message>
+  <wsdl:message name="IAdminConfig_getAdminToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAdminTokenResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IAdminConfig">
+    <wsdl:operation name="getServerTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminConfig/getServerTime" message="tns:IAdminConfig_getServerTime_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminConfig/getServerTimeResponse" message="tns:IAdminConfig_getServerTime_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAdminToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminConfig/getAdminToken" message="tns:IAdminConfig_getAdminToken_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminConfig/getAdminTokenResponse" message="tns:IAdminConfig_getAdminToken_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NoSecurity" type="tns:IAdminConfig">
+    <wsp:PolicyReference URI="#NoSecurity_policy"/>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getServerTime">
+      <soap:operation soapAction="http://tempuri.org/IAdminConfig/getServerTime" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdminToken">
+      <soap:operation soapAction="http://tempuri.org/IAdminConfig/getAdminToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NoSecurity1" type="tns:IAdminConfig">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getServerTime">
+      <soap:operation soapAction="http://tempuri.org/IAdminConfig/getServerTime" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdminToken">
+      <soap:operation soapAction="http://tempuri.org/IAdminConfig/getAdminToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdminConfig">
+    <wsdl:port name="NoSecurity" binding="tns:NoSecurity">
+      <soap:address location="http://localhost:8081/wcf-1"/>
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:8081/wcf-1</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NoSecurity1" binding="tns:NoSecurity1">
+      <soap:address location="http://localhost:8081/wcf-1-noaddressing"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8081/?xsd=xsd0</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:element name="getServerTime">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getServerTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getServerTimeResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAdminToken">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAdminTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getAdminTokenResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8081/?xsd=xsd1</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+  <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+  <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+  <xs:element name="byte" nillable="true" type="xs:byte"/>
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+  <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+  <xs:element name="double" nillable="true" type="xs:double"/>
+  <xs:element name="float" nillable="true" type="xs:float"/>
+  <xs:element name="int" nillable="true" type="xs:int"/>
+  <xs:element name="long" nillable="true" type="xs:long"/>
+  <xs:element name="QName" nillable="true" type="xs:QName"/>
+  <xs:element name="short" nillable="true" type="xs:short"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+  <xs:element name="char" nillable="true" type="tns:char"/>
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration"/>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid"/>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName"/>
+  <xs:attribute name="Id" type="xs:ID"/>
+  <xs:attribute name="Ref" type="xs:IDREF"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8081/wcf-1-noaddressing</con:endpoint></con:endpoints><con:operation id="ee028318-a96f-4d14-b143-35955db00879" isOneWay="false" action="http://tempuri.org/IAdminConfig/getAdminToken" name="getAdminToken" bindingOperationName="getAdminToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="21a7b141-b307-4c85-86eb-d1485e5fe97c" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/wcf-1-noaddressing</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:getAdminToken/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IAdminConfig/getAdminToken"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="57776c19-7414-4fdc-a705-a954f94a0c8d" isOneWay="false" action="http://tempuri.org/IAdminConfig/getServerTime" name="getServerTime" bindingOperationName="getServerTime" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="53459a0f-b6a4-4e23-a4a4-45261a64e8a6" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/wcf-1-noaddressing</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:getServerTime/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IAdminConfig/getServerTime"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

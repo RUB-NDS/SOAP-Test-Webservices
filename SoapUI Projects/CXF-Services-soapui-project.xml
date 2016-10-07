@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="74654b0b-33a0-486f-9df7-df8f9cb066fa" activeEnvironment="Default" name="CXF-Services" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="e2da228d-ccec-471f-846b-de4db27164de" wsaVersion="NONE" name="AdminConfigImplServiceSoapBinding" type="wsdl" bindingName="{http://cxf.kmzs.ba/}AdminConfigImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="C:/Users/Administrator/Downloads/WSDL/CXF.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/Users/Administrator/Downloads/WSDL/CXF.wsdl"><con:part><con:url>file:/C:/Users/Administrator/Downloads/WSDL/CXF.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="AdminConfigImplService" targetNamespace="http://cxf.kmzs.ba/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://cxf.kmzs.ba/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://cxf.kmzs.ba/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getAdminToken" type="tns:getAdminToken"/>
+      <xs:element name="getAdminTokenResponse" type="tns:getAdminTokenResponse"/>
+      <xs:element name="getServerTime" type="tns:getServerTime"/>
+      <xs:element name="getServerTimeResponse" type="tns:getServerTimeResponse"/>
+      <xs:complexType name="getServerTime">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="getServerTimeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAdminToken">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="getAdminTokenResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAdminTokenResponse">
+    <wsdl:part element="tns:getAdminTokenResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAdminToken">
+    <wsdl:part element="tns:getAdminToken" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServerTime">
+    <wsdl:part element="tns:getServerTime" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServerTimeResponse">
+    <wsdl:part element="tns:getServerTimeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AdminConfig">
+    <wsdl:operation name="getServerTime">
+      <wsdl:input message="tns:getServerTime" name="getServerTime"></wsdl:input>
+      <wsdl:output message="tns:getServerTimeResponse" name="getServerTimeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdminToken">
+      <wsdl:input message="tns:getAdminToken" name="getAdminToken"></wsdl:input>
+      <wsdl:output message="tns:getAdminTokenResponse" name="getAdminTokenResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AdminConfigImplServiceSoapBinding" type="tns:AdminConfig">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getServerTime">
+      <soap:operation soapAction="getServerTime" style="document"/>
+      <wsdl:input name="getServerTime">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServerTimeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdminToken">
+      <soap:operation soapAction="getAdminToken" style="document"/>
+      <wsdl:input name="getAdminToken">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAdminTokenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdminConfigImplService">
+    <wsdl:port binding="tns:AdminConfigImplServiceSoapBinding" name="AdminConfigImplPort">
+      <soap:address location="http://localhost:8080/CXF/sign"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/CXF/sign</con:endpoint></con:endpoints><con:operation id="5198f072-8cee-41a0-8aa3-11d4214d98b8" isOneWay="false" action="getAdminToken" name="getAdminToken" bindingOperationName="getAdminToken" type="Request-Response" outputName="getAdminTokenResponse" inputName="getAdminToken" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e92bb15e-629c-4270-abda-d0827ef8e9a7" name="1 No WS-Security" useWsAddressing="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getServerTime/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAdminToken" generateMessageId="true" addDefaultAction="false"/><con:wsrmConfig version="1.2"/></con:call><con:call id="7def6d51-4445-4a92-867a-0f8ef535e68e" name="Sign" incomingWss="Sign" useWsAddressing="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/sign</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getAdminToken/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAdminToken" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call><con:call id="584e9ab1-8316-496a-a9e7-da6ca31bfa34" name="Enc" incomingWss="" useWsAddressing="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/enc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getAdminToken/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAdminToken" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call><con:call id="4d13538a-123c-4035-9f64-d89f1e45078d" name="TS" incomingWss="TS"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/ts</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getAdminToken/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cxf.kmzs.ba/AdminConfig/getAdminToken"/><con:wsrmConfig version="1.2"/></con:call><con:call id="8d6a6b34-2f67-4d67-b916-cc18cf6701fe" name="Enc+Sign" incomingWss="Dec+Sign" useWsAddressing="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/encsign</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getAdminToken/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAdminToken" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call><con:call id="4284bc02-044a-441a-9cf6-e210bc4d98e6" name="Enc+TS" incomingWss="Dec"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/encts</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getAdminToken/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cxf.kmzs.ba/AdminConfig/getAdminToken"/><con:wsrmConfig version="1.2"/></con:call><con:call id="e3cd9270-c8b7-47ef-a592-be793c35cb0f" name="TS+Sign" incomingWss="Sign" useWsAddressing="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/tssign</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getAdminToken/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAdminToken" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call><con:call id="907b83e2-24a2-456a-9fe2-0e74c22297e2" name="Enc+TS+Sign" incomingWss="Dec+Sign" useWsAddressing="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/enctssign</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getAdminToken/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAdminToken" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="235a13c7-55f0-4dce-9cc2-faeb33b43c1a" isOneWay="false" action="getServerTime" name="getServerTime" bindingOperationName="getServerTime" type="Request-Response" outputName="getServerTimeResponse" inputName="getServerTime" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1490724b-4eb8-40e9-bda5-6d01d3ab2394" name="1 No WS-Security" useWsAddressing="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getServerTime/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getServerTime" addDefaultAction="false" generateMessageId="true" addDefaultTo="false"/><con:wsrmConfig version="1.2"/></con:call><con:call id="1a4551ad-9f2d-4c1f-8a58-b935b14f8324" name="Enc" incomingWss="Dec"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/enc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getServerTime/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cxf.kmzs.ba/AdminConfig/getServerTime"/><con:wsrmConfig version="1.2"/></con:call><con:call id="917e2436-5850-47c1-980f-2150ceab93aa" name="Enc+Sign" incomingWss="Dec+Sign" useWsAddressing="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/encsign</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getServerTime/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getServerTime" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call><con:call id="0a92d9fd-8bf1-4a93-8e1e-65d9aa3b2a8f" name="Enc+TS" incomingWss="Dec"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/encts</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getServerTime/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cxf.kmzs.ba/AdminConfig/getServerTime"/><con:wsrmConfig version="1.2"/></con:call><con:call id="9c23252e-a6bb-4988-bcdb-e27f1397f5a5" name="Enc+TS+Sign" incomingWss="Dec+Sign"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/enctssign</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getServerTime/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cxf.kmzs.ba/AdminConfig/getServerTime"/><con:wsrmConfig version="1.2"/></con:call><con:call id="61f02ab9-8e80-4d09-9cd5-7e61b92823a7" name="Sign" incomingWss="Sign"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/sign</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getServerTime/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cxf.kmzs.ba/AdminConfig/getServerTime"/><con:wsrmConfig version="1.2"/></con:call><con:call id="eaf7fb0a-fc20-441b-9da9-882664d6e242" name="TS" incomingWss="TS"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/ts</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getServerTime/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cxf.kmzs.ba/AdminConfig/getServerTime"/><con:wsrmConfig version="1.2"/></con:call><con:call id="2223fffa-b46c-40b1-b1c4-22ee8ffadecb" name="TS+Sign" incomingWss="Sign"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CXF/tssign</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cxf="http://cxf.kmzs.ba/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cxf:getServerTime/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cxf.kmzs.ba/AdminConfig/getServerTime"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer><con:crypto><con:source>C:/Keystores/client_keystore.jks</con:source><con:password>clientkeystorepassword</con:password><con:type>KEYSTORE</con:type><con:defaultAlias>client</con:defaultAlias><con:aliasPassword>clientkeypassword</con:aliasPassword></con:crypto><con:crypto><con:source>C:/Keystores/client_truststore.jks</con:source><con:password>clienttruststorepassword</con:password><con:type>TRUSTSTORE</con:type></con:crypto><con:incoming><con:name>Sign</con:name><con:signatureCrypto>client_truststore.jks</con:signatureCrypto></con:incoming><con:incoming><con:name>Dec</con:name><con:decryptCrypto>client_keystore.jks</con:decryptCrypto><con:decryptPassword>clientkeypassword</con:decryptPassword></con:incoming><con:incoming><con:name>Dec+Sign</con:name><con:decryptCrypto>client_keystore.jks</con:decryptCrypto><con:signatureCrypto>client_truststore.jks</con:signatureCrypto><con:decryptPassword>clientkeypassword</con:decryptPassword></con:incoming><con:incoming><con:name>TS</con:name><con:decryptCrypto xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><con:signatureCrypto>client_truststore.jks</con:signatureCrypto></con:incoming><con:outgoing><con:name>Sign</con:name><con:entry type="Signature" username="client" password="clientkeypassword"><con:configuration><crypto>client_keystore.jks</crypto><keyIdentifierType>2</keyIdentifierType><signatureAlgorithm/><signatureCanonicalization/><useSingleCert>false</useSingleCert><digestAlgorithm/><customTokenValueType/><customTokenId/></con:configuration></con:entry></con:outgoing><con:outgoing><con:name>Enc</con:name><con:entry type="Encryption" username="server"><con:configuration><crypto>client_keystore.jks</crypto><keyIdentifierType>2</keyIdentifierType><symmetricEncAlgorithm/><encKeyTransport/><embeddedKeyName/><embeddedKeyPassword/><encryptionCanonicalization/><encryptSymmetricKey>true</encryptSymmetricKey></con:configuration></con:entry></con:outgoing><con:outgoing><con:name>TS</con:name><con:entry type="Timestamp"><con:configuration><timeToLive>500</timeToLive><strictTimestamp>true</strictTimestamp></con:configuration></con:entry></con:outgoing><con:outgoing><con:name>Enc+Sign</con:name><con:entry type="Encryption" username="server"><con:configuration><crypto>client_keystore.jks</crypto><keyIdentifierType>2</keyIdentifierType><symmetricEncAlgorithm/><encKeyTransport/><embeddedKeyName/><embeddedKeyPassword/><encryptionCanonicalization/><encryptSymmetricKey>true</encryptSymmetricKey></con:configuration></con:entry><con:entry type="Signature" username="client" password="clientkeypassword"><con:configuration><crypto>client_keystore.jks</crypto><keyIdentifierType>2</keyIdentifierType><signatureAlgorithm/><signatureCanonicalization/><useSingleCert>false</useSingleCert><digestAlgorithm/><customTokenValueType/><customTokenId/></con:configuration></con:entry></con:outgoing><con:outgoing><con:name>Enc+TS</con:name><con:entry type="Encryption" username="server"><con:configuration><crypto>client_keystore.jks</crypto><keyIdentifierType>2</keyIdentifierType><symmetricEncAlgorithm/><encKeyTransport/><embeddedKeyName/><embeddedKeyPassword/><encryptionCanonicalization/><encryptSymmetricKey>true</encryptSymmetricKey></con:configuration></con:entry><con:entry type="Timestamp"><con:configuration><timeToLive>500</timeToLive><strictTimestamp>true</strictTimestamp></con:configuration></con:entry></con:outgoing><con:outgoing><con:name>TS+Sign</con:name><con:entry type="Timestamp"><con:configuration><timeToLive>500</timeToLive><strictTimestamp>true</strictTimestamp></con:configuration></con:entry><con:entry type="Signature" username="client" password="clientkeypassword"><con:configuration><crypto>client_keystore.jks</crypto><keyIdentifierType>2</keyIdentifierType><signatureAlgorithm/><signatureCanonicalization/><useSingleCert>false</useSingleCert><digestAlgorithm/><customTokenValueType/><customTokenId/><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="id" value=""/>
+  <con:entry key="name" value="Body"/>
+  <con:entry key="namespace" value="http://schemas.xmlsoap.org/soap/envelope/"/>
+  <con:entry key="enc" value="Element"/>
+</xml-fragment>]]></signaturePart><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="id" value=""/>
+  <con:entry key="name" value="Timestamp"/>
+  <con:entry key="enc" value="Element"/>
+  <con:entry key="namespace" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+</xml-fragment>]]></signaturePart></con:configuration></con:entry></con:outgoing><con:outgoing><con:name>Enc+TS+Sign</con:name><con:entry type="Encryption" username="server"><con:configuration><crypto>client_keystore.jks</crypto><keyIdentifierType>2</keyIdentifierType><symmetricEncAlgorithm/><encKeyTransport/><embeddedKeyName/><embeddedKeyPassword/><encryptionCanonicalization/><encryptSymmetricKey>true</encryptSymmetricKey></con:configuration></con:entry><con:entry type="Timestamp"><con:configuration><timeToLive>500</timeToLive><strictTimestamp>true</strictTimestamp></con:configuration></con:entry><con:entry type="Signature" username="client" password="clientkeypassword"><con:configuration><crypto>client_keystore.jks</crypto><keyIdentifierType>2</keyIdentifierType><signatureAlgorithm/><signatureCanonicalization/><useSingleCert>false</useSingleCert><digestAlgorithm/><customTokenValueType/><customTokenId/><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="id" value=""/>
+  <con:entry key="name" value="Body"/>
+  <con:entry key="namespace" value="http://schemas.xmlsoap.org/soap/envelope/"/>
+  <con:entry key="enc" value="Element"/>
+</xml-fragment>]]></signaturePart><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="id" value=""/>
+  <con:entry key="name" value="Timestamp"/>
+  <con:entry key="namespace" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+  <con:entry key="enc" value="Element"/>
+</xml-fragment>]]></signaturePart></con:configuration></con:entry></con:outgoing></con:wssContainer><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

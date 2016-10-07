@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="cc7384d6-29a3-4cf7-a1f1-3ad16ef9efda" activeEnvironment="Default" name="Axis2-EncSign" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="2010238e-a5b4-4829-a8d5-ea1f56bd6c04" wsaVersion="NONE" name="axis2-encsignSoap12Binding" type="wsdl" bindingName="{http://axis21.kmzs.ba/}axis2-encsignSoap12Binding" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/Administrator/Downloads/WSDL/axis2-encsign.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/Users/Administrator/Downloads/WSDL/axis2-encsign.wsdl"><con:part><con:url>file:/C:/Users/Administrator/Downloads/WSDL/axis2-encsign.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://axis21.kmzs.ba/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://axis21.kmzs.ba" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://axis21.kmzs.ba/">
+  <wsp:Policy wsu:Id="EncSing" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:AsymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+            <sp:InitiatorToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference/>
+                    <sp:WssX509V3Token10/>
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:InitiatorToken>
+            <sp:RecipientToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference/>
+                    <sp:WssX509V3Token10/>
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:RecipientToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:EncryptBeforeSigning/>
+            <sp:OnlySignEntireHeadersAndBody/>
+          </wsp:Policy>
+        </sp:AsymmetricBinding>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body/>
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body/>
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:documentation>axis2-encsign</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://axis21.kmzs.ba">
+      <xs:element name="getServerTime">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getServerTimeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAdminToken">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAdminTokenResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAdminTokenRequest">
+    <wsdl:part name="parameters" element="ns:getAdminToken"/>
+  </wsdl:message>
+  <wsdl:message name="getAdminTokenResponse">
+    <wsdl:part name="parameters" element="ns:getAdminTokenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getServerTimeRequest">
+    <wsdl:part name="parameters" element="ns:getServerTime"/>
+  </wsdl:message>
+  <wsdl:message name="getServerTimeResponse">
+    <wsdl:part name="parameters" element="ns:getServerTimeResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="axis2-encsignPortType" wsp:PolicyURIs="#EncSing" xmlns:wsp="http://www.w3.org/ns/ws-policy">
+    <wsdl:operation name="getAdminToken">
+      <wsdl:input message="tns:getAdminTokenRequest" wsaw:Action="urn:getAdminToken"/>
+      <wsdl:output message="tns:getAdminTokenResponse" wsaw:Action="urn:getAdminTokenResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <wsdl:input message="tns:getServerTimeRequest" wsaw:Action="urn:getServerTime"/>
+      <wsdl:output message="tns:getServerTimeResponse" wsaw:Action="urn:getServerTimeResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="axis2-encsignSoap11Binding" type="tns:axis2-encsignPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="getAdminToken">
+      <soap:operation soapAction="urn:getAdminToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <soap:operation soapAction="urn:getServerTime" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="axis2-encsignSoap12Binding" type="tns:axis2-encsignPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="getAdminToken">
+      <soap12:operation soapAction="urn:getAdminToken" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <soap12:operation soapAction="urn:getServerTime" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="axis2-encsignHttpBinding" type="tns:axis2-encsignPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="getAdminToken">
+      <http:operation location="getAdminToken"/>
+      <wsdl:input>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <http:operation location="getServerTime"/>
+      <wsdl:input>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="axis2-encsign">
+    <wsdl:port name="axis2-encsignHttpSoap11Endpoint" binding="tns:axis2-encsignSoap11Binding">
+      <soap:address location="http://localhost:8080/axis2/services/axis2-encsign.axis2-encsignHttpSoap11Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="axis2-encsignHttpSoap12Endpoint" binding="tns:axis2-encsignSoap12Binding">
+      <soap12:address location="http://localhost:8080/axis2/services/axis2-encsign.axis2-encsignHttpSoap12Endpoint/"/>
+    </wsdl:port>
+    <wsp:Policy wsu:Id="EncSing" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+      <wsp:ExactlyOne>
+        <wsp:All>
+          <sp:AsymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+            <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+              <sp:InitiatorToken>
+                <wsp:Policy>
+                  <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                    <wsp:Policy>
+                      <sp:RequireThumbprintReference/>
+                      <sp:WssX509V3Token10/>
+                    </wsp:Policy>
+                  </sp:X509Token>
+                </wsp:Policy>
+              </sp:InitiatorToken>
+              <sp:RecipientToken>
+                <wsp:Policy>
+                  <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                    <wsp:Policy>
+                      <sp:RequireThumbprintReference/>
+                      <sp:WssX509V3Token10/>
+                    </wsp:Policy>
+                  </sp:X509Token>
+                </wsp:Policy>
+              </sp:RecipientToken>
+              <sp:AlgorithmSuite>
+                <wsp:Policy>
+                  <sp:Basic128/>
+                </wsp:Policy>
+              </sp:AlgorithmSuite>
+              <sp:Layout>
+                <wsp:Policy>
+                  <sp:Strict/>
+                </wsp:Policy>
+              </sp:Layout>
+              <sp:EncryptBeforeSigning/>
+              <sp:OnlySignEntireHeadersAndBody/>
+            </wsp:Policy>
+          </sp:AsymmetricBinding>
+          <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+            <sp:Body/>
+          </sp:SignedParts>
+          <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+            <sp:Body/>
+          </sp:EncryptedParts>
+        </wsp:All>
+      </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsdl:port name="axis2-encsignHttpEndpoint" binding="tns:axis2-encsignHttpBinding">
+      <http:address location="http://localhost:8080/axis2/services/axis2-encsign.axis2-encsignHttpEndpoint/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/axis2/services/axis2-encsign.axis2-encsignHttpSoap12Endpoint/</con:endpoint></con:endpoints><con:operation id="4986a11e-95b2-47ac-916b-64e415744c0d" isOneWay="false" action="urn:getAdminToken" name="getAdminToken" bindingOperationName="getAdminToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="66cac2b8-806c-4e05-a725-035f4669a96c" name="Request 1" incomingWss="Dec+Sign" useWsAddressing="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/axis2/services/axis2-encsign/axis2-encsign.axis2-encsignHttpSoap12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:axis="http://axis21.kmzs.ba">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <axis:getAdminToken/>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getAdminToken" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="bd338d15-e61f-4772-881d-739d53fcda7d" isOneWay="false" action="urn:getServerTime" name="getServerTime" bindingOperationName="getServerTime" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bacb92b6-857b-4183-bd54-a1263b33f01c" name="Request 1" incomingWss="Dec+Sign"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/axis2/services/axis2-encsign/axis2-encsign.axis2-encsignHttpSoap12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:axis="http://axis21.kmzs.ba">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <axis:getServerTime/>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getServerTime"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer><con:crypto><con:source>C:/Keystores/client_keystore.jks</con:source><con:password>clientkeystorepassword</con:password><con:type>KEYSTORE</con:type></con:crypto><con:crypto><con:source>C:/Keystores/client_truststore.jks</con:source><con:password>clienttruststorepassword</con:password><con:type>TRUSTSTORE</con:type></con:crypto><con:incoming><con:name>Dec+Sign</con:name><con:decryptCrypto>client_keystore.jks</con:decryptCrypto><con:signatureCrypto>client_truststore.jks</con:signatureCrypto><con:decryptPassword>clientkeypassword</con:decryptPassword></con:incoming><con:outgoing><con:name>Enc+Sign</con:name><con:entry type="Encryption" username="server"><con:configuration><crypto>client_keystore.jks</crypto><keyIdentifierType>2</keyIdentifierType><symmetricEncAlgorithm/><encKeyTransport/><embeddedKeyName/><embeddedKeyPassword/><encryptionCanonicalization/><encryptSymmetricKey>true</encryptSymmetricKey></con:configuration></con:entry><con:entry type="Signature" username="client" password="clientkeypassword"><con:configuration><crypto>client_keystore.jks</crypto><keyIdentifierType>2</keyIdentifierType><signatureAlgorithm/><signatureCanonicalization/><useSingleCert>false</useSingleCert><digestAlgorithm/><customTokenValueType/><customTokenId/></con:configuration></con:entry></con:outgoing></con:wssContainer><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

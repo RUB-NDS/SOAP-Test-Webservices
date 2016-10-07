@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="2a7f4deb-7a25-488e-9f33-7a30cf3c9f62" activeEnvironment="Default" name="Axis2-1" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="5ae63507-da6d-4952-960e-3ceac5b33156" wsaVersion="NONE" name="Axis2-1Soap12Binding" type="wsdl" bindingName="{http://axis21.kmzs.ba/}Axis2-1Soap12Binding" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/Administrator/Downloads/WSDL/Axis2-1.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\Administrator\Downloads\WSDL\Axis2-1.wsdl"><con:part><con:url>file:\C:\Users\Administrator\Downloads\WSDL\Axis2-1.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://axis21.kmzs.ba/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://axis21.kmzs.ba" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://axis21.kmzs.ba/">
+  <wsdl:documentation>Axis2-1</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://axis21.kmzs.ba">
+      <xs:element name="getServerTime">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getServerTimeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAdminToken">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAdminTokenResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAdminTokenRequest">
+    <wsdl:part name="parameters" element="ns:getAdminToken"/>
+  </wsdl:message>
+  <wsdl:message name="getAdminTokenResponse">
+    <wsdl:part name="parameters" element="ns:getAdminTokenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getServerTimeRequest">
+    <wsdl:part name="parameters" element="ns:getServerTime"/>
+  </wsdl:message>
+  <wsdl:message name="getServerTimeResponse">
+    <wsdl:part name="parameters" element="ns:getServerTimeResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="Axis2-1PortType">
+    <wsdl:operation name="getAdminToken">
+      <wsdl:input message="tns:getAdminTokenRequest" wsaw:Action="urn:getAdminToken"/>
+      <wsdl:output message="tns:getAdminTokenResponse" wsaw:Action="urn:getAdminTokenResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <wsdl:input message="tns:getServerTimeRequest" wsaw:Action="urn:getServerTime"/>
+      <wsdl:output message="tns:getServerTimeResponse" wsaw:Action="urn:getServerTimeResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Axis2-1Soap11Binding" type="tns:Axis2-1PortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="getAdminToken">
+      <soap:operation soapAction="urn:getAdminToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <soap:operation soapAction="urn:getServerTime" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Axis2-1Soap12Binding" type="tns:Axis2-1PortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="getAdminToken">
+      <soap12:operation soapAction="urn:getAdminToken" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <soap12:operation soapAction="urn:getServerTime" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Axis2-1HttpBinding" type="tns:Axis2-1PortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="getAdminToken">
+      <http:operation location="getAdminToken"/>
+      <wsdl:input>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTime">
+      <http:operation location="getServerTime"/>
+      <wsdl:input>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Axis2-1">
+    <wsdl:port name="Axis2-1HttpSoap11Endpoint" binding="tns:Axis2-1Soap11Binding">
+      <soap:address location="http://localhost:8080/axis2/services/Axis2-1.Axis2-1HttpSoap11Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="Axis2-1HttpSoap12Endpoint" binding="tns:Axis2-1Soap12Binding">
+      <soap12:address location="http://localhost:8080/axis2/services/Axis2-1.Axis2-1HttpSoap12Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="Axis2-1HttpEndpoint" binding="tns:Axis2-1HttpBinding">
+      <http:address location="http://localhost:8080/axis2/services/Axis2-1.Axis2-1HttpEndpoint/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/axis2/services/Axis2-1.Axis2-1HttpSoap12Endpoint/</con:endpoint></con:endpoints><con:operation id="9f6985de-144b-4998-b6e3-ae9cb6a9943f" isOneWay="false" action="urn:getAdminToken" name="getAdminToken" bindingOperationName="getAdminToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9b5de546-e81a-4c87-9910-4f3a34814291" name="Request 1" useWsAddressing="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/axis2/services/axis2-1/Axis2-1.Axis2-1HttpSoap12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:axis="http://axis21.kmzs.ba">
+   <soap:Header/>
+   <soap:Body>
+      <axis:getAdminToken/>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getAdminToken" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="76dd9533-5ecf-486d-9d89-0eafbea00e09" isOneWay="false" action="urn:getServerTime" name="getServerTime" bindingOperationName="getServerTime" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="15b41879-220a-423e-80ca-3a3f94906b5a" name="Request 1" useWsAddressing="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/axis2/services/axis2-1/Axis2-1.Axis2-1HttpSoap12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:axis="http://axis21.kmzs.ba">
+   <soap:Header/>
+   <soap:Body>
+      <axis:getServerTime/>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:getServerTime" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

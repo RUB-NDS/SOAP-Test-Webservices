@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="cd2c049c-eac0-4521-9a5f-902010522016" activeEnvironment="Default" name="Metro-EncTSSign" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="a9b83609-2f69-4e0d-a178-60209c8c2f9f" wsaVersion="NONE" name="AdminConfigImplPortBinding" type="wsdl" bindingName="{http://metro1.kmzs.ba/}AdminConfigImplPortBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/Administrator/Downloads/WSDL/metro-enctssign.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\Administrator\Downloads\WSDL\metro-enctssign.wsdl"><con:part><con:url>file:\C:\Users\Administrator\Downloads\WSDL\metro-enctssign.wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1 (UNKNOWN_BRANCH-false; 2015-01-15T16:53:43+0100) JAXWS-RI/2.2.10 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown.-->
+<definitions targetNamespace="http://metro1.kmzs.ba/" name="AdminConfigImplService" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://metro1.kmzs.ba/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema version="1.0" targetNamespace="http://metro1.kmzs.ba/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getAdminToken" type="tns:getAdminToken"/>
+      <xs:element name="getAdminTokenResponse" type="tns:getAdminTokenResponse"/>
+      <xs:element name="getServerTime" type="tns:getServerTime"/>
+      <xs:element name="getServerTimeResponse" type="tns:getServerTimeResponse"/>
+      <xs:complexType name="getServerTime">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="getServerTimeResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAdminToken">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="getAdminTokenResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="getAdminToken">
+    <part name="parameters" element="tns:getAdminToken"/>
+  </message>
+  <message name="getAdminTokenResponse">
+    <part name="parameters" element="tns:getAdminTokenResponse"/>
+  </message>
+  <message name="getServerTime">
+    <part name="parameters" element="tns:getServerTime"/>
+  </message>
+  <message name="getServerTimeResponse">
+    <part name="parameters" element="tns:getServerTimeResponse"/>
+  </message>
+  <portType name="AdminConfig">
+    <operation name="getAdminToken">
+      <input wsam:Action="http://metro1.kmzs.ba/AdminConfig/getAdminTokenRequest" message="tns:getAdminToken"/>
+      <output wsam:Action="http://metro1.kmzs.ba/AdminConfig/getAdminTokenResponse" message="tns:getAdminTokenResponse"/>
+    </operation>
+    <operation name="getServerTime">
+      <input wsam:Action="http://metro1.kmzs.ba/AdminConfig/getServerTimeRequest" message="tns:getServerTime"/>
+      <output wsam:Action="http://metro1.kmzs.ba/AdminConfig/getServerTimeResponse" message="tns:getServerTimeResponse"/>
+    </operation>
+  </portType>
+  <binding name="AdminConfigImplPortBinding" type="tns:AdminConfig">
+    <wsp:PolicyReference URI="#EncTSSign" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="getAdminToken">
+      <soap:operation soapAction="getAdminToken"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getServerTime">
+      <soap:operation soapAction="getServerTime"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AdminConfigImplService">
+    <port name="AdminConfigImplPort" binding="tns:AdminConfigImplPortBinding">
+      <soap:address location="http://localhost:8080/metro-enctssign/"/>
+    </port>
+  </service>
+  <!--Encryption of the body, Signature of the body and Timestamps-->
+  <wsp:Policy wsu:Id="EncTSSign" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:AsymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:InitiatorToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference/>
+                    <sp:WssX509V3Token10/>
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:InitiatorToken>
+            <sp:RecipientToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference/>
+                    <sp:WssX509V3Token10/>
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:RecipientToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp/>
+            <sp:OnlySignEntireHeadersAndBody/>
+            <sp:EncryptBeforeSigning/>
+          </wsp:Policy>
+        </sp:AsymmetricBinding>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body/>
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body/>
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/metro-enctssign/</con:endpoint></con:endpoints><con:operation id="b0e271e9-2473-410a-831a-c51f85edede8" isOneWay="false" action="getAdminToken" name="getAdminToken" bindingOperationName="getAdminToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2155d7d7-a7ee-4be0-8a02-4ef344fd2bb2" name="Request 1" incomingWss="Dec+TS+Sign" useWsAddressing="true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/metro-enctssign/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:met="http://metro1.kmzs.ba/">
+   <soapenv:Header/>
+   <soapenv:Body><met:getAdminToken/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAdminToken" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="dfd7713c-a2f9-4ad6-be19-8b20a638bd55" isOneWay="false" action="getServerTime" name="getServerTime" bindingOperationName="getServerTime" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ee4855b1-6d7d-4945-9363-e9ff00bf89a1" name="Request 1" incomingWss="Dec+TS+Sign" useWsAddressing="true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/metro-enctssign/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:met="http://metro1.kmzs.ba/">
+   <soapenv:Header/>
+   <soapenv:Body><met:getServerTime/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getServerTime" generateMessageId="true"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer><con:crypto><con:source>C:/Keystores/client_keystore.jks</con:source><con:password>clientkeystorepassword</con:password><con:type>KEYSTORE</con:type></con:crypto><con:crypto><con:source>C:/Keystores/client_truststore.jks</con:source><con:password>clienttruststorepassword</con:password><con:type>TRUSTSTORE</con:type></con:crypto><con:incoming><con:name>Dec+TS+Sign</con:name><con:decryptCrypto>client_keystore.jks</con:decryptCrypto><con:signatureCrypto>client_truststore.jks</con:signatureCrypto><con:decryptPassword>clientkeypassword</con:decryptPassword></con:incoming><con:outgoing><con:name>Enc+TS+Sign</con:name><con:entry type="Encryption" username="server"><con:configuration><crypto>client_keystore.jks</crypto><keyIdentifierType>2</keyIdentifierType><symmetricEncAlgorithm/><encKeyTransport/><embeddedKeyName/><embeddedKeyPassword/><encryptionCanonicalization/><encryptSymmetricKey>true</encryptSymmetricKey></con:configuration></con:entry><con:entry type="Timestamp"><con:configuration><timeToLive>500</timeToLive><strictTimestamp>true</strictTimestamp></con:configuration></con:entry><con:entry type="Signature" username="client" password="clientkeypassword"><con:configuration><crypto>client_keystore.jks</crypto><keyIdentifierType>2</keyIdentifierType><signatureAlgorithm/><signatureCanonicalization/><useSingleCert>false</useSingleCert><digestAlgorithm/><customTokenValueType/><customTokenId/><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="id" value=""/>
+  <con:entry key="name" value="Body"/>
+  <con:entry key="namespace" value="http://schemas.xmlsoap.org/soap/envelope/"/>
+  <con:entry key="enc" value="Element"/>
+</xml-fragment>]]></signaturePart><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="id" value=""/>
+  <con:entry key="name" value="Timestamp"/>
+  <con:entry key="namespace" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+  <con:entry key="enc" value="Element"/>
+</xml-fragment>]]></signaturePart></con:configuration></con:entry></con:outgoing></con:wssContainer><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
